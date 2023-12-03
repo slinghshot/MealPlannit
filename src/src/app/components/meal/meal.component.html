@@ -1,0 +1,45 @@
+<app-navbar></app-navbar>
+<main class="main">
+    <div [ngClass]="meals.length!=0 ? 'cardBG': '' " *ngIf="meals?.length!=0">
+        <div class="container">
+            <div class="row text-center pb-3">
+                <div class="col-sm">
+                    <h1>Meals</h1>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row justify-content-around gy-5">
+                <div class="col-xs-0 col-md-0 col-lg-6 items" *ngFor="let meal of meals; index as i;">
+                    <div class="background" (click)="open(meal)">
+                        <div class="mealInfo">
+                            <h2>{{meal.meals.mealName | titlecase}} </h2>
+                            <p>Meal Description: {{meal.meals.mealDescription}}</p>
+                        </div>
+                        <div class="info">
+                            <h3>Nutrition Stats:</h3>
+                            <!-- <div class="container infoStats b"> -->
+                            <div class="cardFactContainer">
+                                <div class="cardFact">Calories: <div>{{meal.totalCalories}}
+                                    </div>
+                                </div>
+
+                                <div class="cardFact ">Protein: <div>{{meal.totalProtein}}g
+                                    </div>
+                                </div>
+                                <div class="cardFact  ">Ingredients: <div>
+                                        {{meal.totalIngredients}}
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- </div> -->
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <app-create-meal [meals]="meals"></app-create-meal>
+</main>
