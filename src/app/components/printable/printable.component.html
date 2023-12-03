@@ -1,0 +1,29 @@
+<div class="container-fluid entiretable " *ngIf="generatedIngredients.length>0">
+
+    <div class="row justify-content-center">
+        <table class="col-lg-8 print-friendly">
+            <tr>
+                <th class="iheading">Ingredient Name</th>
+                <th>
+                    <div class="row">
+                        <div class="col-lg-3 amount">Amount</div>
+                        <div class="col-lg-8 mealName">Meals Referenced</div>
+                    </div>
+                </th>
+            </tr>
+            <tr *ngFor="let ingredient of generatedIngredients; index as j;">
+                <td>{{ingredient.ingredient}}</td>
+                <td>
+                    <div *ngFor="let meal of ingredient.meal; index as k;">
+                        <div class="row">
+                            <div class="col-lg-3 amount">{{meal.amount}}</div>
+                            <div class="col-lg-6 mealName">{{meal.name}}</div>
+                            <hr style="margin-bottom:-10px;" *ngIf="k===0 && ingredient.meal.length>1">
+                        </div>
+                    </div>
+                </td>
+            </tr>
+
+        </table>
+    </div>
+</div>
