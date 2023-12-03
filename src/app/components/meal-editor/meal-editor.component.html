@@ -7,7 +7,7 @@
 <form class="form " id="top">
     <button type="button" class="btn-close text-reset" aria-label="Close"
         (click)="activeOffcanvas.dismiss('Cross click')"></button>
-    <div class="title"><img class="logo" src="../../../assets/logo.png" />Meal {{header}}</div>
+    <div class="title"><img class="logo" src="../../assets/logo.png" />Meal {{header}}</div>
     <div *ngIf="meal" class="fieldName"><span>Meal Name:</span><br>
         <input class="input" [readOnly]="isReadOnly" [ngClass]="isActive" [(ngModel)]="meal.meals.mealName"
             [ngModelOptions]="{standalone: true}" />
