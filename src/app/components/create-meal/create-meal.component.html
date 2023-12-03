@@ -1,0 +1,135 @@
+<div class="NewMeals">
+    <div class="container ">
+        <div class="row text-center">
+            <div class="col-sm">
+                <h1>Create Your Meals</h1>
+            </div>
+        </div>
+    </div>
+
+    <div class="container ">
+        <!-- <div class="row"> -->
+        <form class="row MealForm">
+            <div class="col-xs-0 col-md-0 col-lg-6 ">
+                <div class="form-group">
+                    <label for="mealName">Meal Name*</label>
+                    <input type="text" class="form-control" ngModel required id="mealName" aria-describedby="mealName"
+                        name="mealName" placeholder="Enter Meal Name" [(ngModel)]="mealName" />
+                        <span class="text-danger" *ngIf="inputError.mealNameError && submitted">
+                        {{inputError.mealNameErrorDescription}}
+                    </span>
+                </div>
+                <!-- <br> -->
+                <!-- <button type="submit" (click)="test()" class="btn btn-danger">test</button> -->
+            </div>
+            <div class="col-xs-0 col-md-0 col-lg-6 ">
+                <div class="form-group">
+                    <label for="mealDescription">Meal Description</label>
+                    <textarea type="text" class="form-control" id="mealDescription" aria-describedby="mealDescription"
+                        name="mealDescription" placeholder="Enter Meal Description"
+                        [(ngModel)]="mealDescription"></textarea>
+                        <span class="text-danger" *ngIf="inputError.mealDesc && submitted">
+                            {{inputError.mealDescErrorDescription}}
+                        </span>
+                </div>
+                <!-- <br> -->
+
+                <!-- <button type="submit" (click)="test()" class="btn btn-danger">test</button> -->
+            </div>
+        </form>
+        <!-- </div> -->
+    </div>
+
+    <div class="container">
+        <div class="row ingredients" *ngFor="let item of mealForm">
+
+            <div class="form-group col-xs-0 col-md-0 col-lg-6">
+                <label for="Ingredient">Ingredient*</label>
+                <input type="text" class="form-control" aria-describedby="Ingredient" placeholder="Enter Ingredient"
+                    [(ngModel)]="item.ingredientName" [ngbTypeahead]="search" [ngModelOptions]="{standalone: true}" />
+                <span class="text-danger" *ngIf="inputError.ingredientNameError && submitted">
+                    {{inputError.ingredientNameErrorDescription}}
+                </span>
+            </div>
+            <div class="form-group col-xs-0 col-md-0 col-lg-6">
+                <label for="ingredientDescription">Ingredient Description</label>
+                <input type="text" class="form-control" aria-describedby="ingredientDescription"
+                    placeholder="Enter Ingredient Description" [(ngModel)]="item.ingredientDescription"
+                    [ngModelOptions]="{standalone: true}" />
+                    <span class="text-danger" *ngIf="inputError.ingredientDescError && submitted">
+                        {{inputError.ingredientDescErrorDescription}}
+                    </span>
+            </div>
+
+            <div class="form-group col-xs-0 col-md-0 col-lg-3 ">
+                <label for="amount">Amount*</label>
+                <input type="text" class="form-control" aria-describedby="amount" placeholder="Enter amount"
+                    [(ngModel)]="item.amount" [ngModelOptions]="{standalone: true}" />
+                <span class="text-danger" *ngIf="inputError.amountError && submitted">
+                    {{inputError.amountErrorDescription}}
+                </span>
+            </div>
+
+            <div class="form-group col-xs-0 col-md-0 col-lg-3 ">
+                <label for="amountType">Amount Type*</label>
+                <input type="text" class="form-control" aria-describedby="amountType"
+                    placeholder="Enter Measurement Unit (gram)" [(ngModel)]="item.amountType"
+                    [ngbTypeahead]="searchMeasurement" [ngModelOptions]="{standalone: true}" />
+                <!-- <select type="text" class="form-control" aria-describedby="amountType" [(ngModel)]="item.amountType">
+                    <option value="" disabled selected>Select Amount Units</option>
+                    <option value="lb">Pound(lb)</option>
+                    <option value="g">Gram</option>
+                    <option value="cup">Cup</option>
+                    <option value="stick">Stick</option>
+                    <option value="teaspoon">Teaspoon</option>
+                    <option value="tablespoon">Tablespoon</option>
+                </select> -->
+                <span class="text-danger" *ngIf="inputError.amountTypeError && submitted">
+                    {{inputError.amountTypeErrorDescription}}
+                </span>
+            </div>
+            <div class="form-group col-xs-0 col-md-0 col-lg-2">
+                <label for="calories">Calories (kcal)</label>
+                <input type="number" value="0" class="form-control" aria-describedby="calories"
+                    placeholder="amount of calories" [(ngModel)]="item.calories"
+                    [ngModelOptions]="{standalone: true}" />
+                    <span class="text-danger" *ngIf="inputError.caloriesError && submitted">
+                        {{inputError.caloriesErrorDescription}}
+                    </span>
+            </div>
+            <div class="form-group col-xs-0 col-md-0 col-lg-2">
+                <label for="protein">Protein (g)</label>
+                <input type="number" class="form-control" aria-describedby="protein" placeholder="amount of protein"
+                    [(ngModel)]="item.protein" [ngModelOptions]="{standalone: true}" />
+                    <span class="text-danger" *ngIf="inputError.proteinError && submitted">
+                        {{inputError.proteinErrorDescription}}
+                    </span>
+            </div>
+            <div class="form-group col-xs-0 col-md-0 col-lg-2">
+                <label for="fat">Fat (g)</label>
+                <input type="number" value="0" class="form-control" aria-describedby="protein"
+                    placeholder="amount of fat" [(ngModel)]="item.fat" [ngModelOptions]="{standalone: true}" />
+                    <span class="text-danger" *ngIf="inputError.fatError && submitted">
+                        {{inputError.fatErrorDescription}}
+                    </span>
+            </div>
+            <div class="form-check col-xs-0 col-md-0 col-lg-3 offset-lg-0 isOptional">
+                <input class="form-check-input" type="checkbox" value="" id="ingIsOptional"
+                    [(ngModel)]="item.isOptional">
+                <label class="form-check-label" for="ingIsOptional">
+                    Is this ingredient optional?
+                </label>
+            </div>
+            <button class="btn btn-outline-danger delButton" (click)="deleteForm(item)">(—)</button>
+        </div>
+        <div class="col-xs-0 col-md-0 col-lg-6 ">
+            <button type="submit" class=" submitbutton " (click)="logMeal()">Create Meal</button>
+            <button class="btn btn-outline-primary addButton" (click)="addForm()">Add Ingredient</button>
+            <input class="form-check-input shareable" type="checkbox" value="" [(ngModel)]="shared">
+            <label class="form-check-label shareLabel" for="flexCheckDefault">
+                Share meal with others?
+            </label>
+        </div>
+    </div>
+
+</div>
