@@ -10,8 +10,8 @@ import { jwtDecode } from 'jwt-decode';
 export class AuthService {
   userLoggedIn: boolean = false;
   name: string = '';
-  private apiAuth = 'http://127.0.0.1:3000/api/v1/auth';
-  // private apiAuth = 'https://api.mealplannit.com/api/v1/auth';
+  // private apiAuth = 'http://127.0.0.1:3000/api/v1/auth';
+  private apiAuth = 'https://api.mealplannit.com/api/v1/auth';
   constructor(private http: HttpClient) {}
 
   login(email: string, password: string): Observable<Authorization> {
