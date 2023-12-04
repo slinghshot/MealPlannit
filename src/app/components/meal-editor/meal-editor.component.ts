@@ -86,17 +86,17 @@ export class MealEditorComponent {
     this.goToTop();
   }
   updateMeal() {
-    if (this.meal) {
-      console.log(this.meal.meals);
-      console.log(this.meal.meals._id);
-    }
+    // if (this.meal) {
+    //   console.log(this.meal.meals);
+    //   console.log(this.meal.meals._id);
+    // }
 
     if (this.meal?.meals._id) {
       this.engineService
         .updateMeal(this.meal?.meals, this.meal?.meals._id)
         .subscribe({
           next: (value: any) => {
-            console.log(value);
+            // console.log(value);
             this.activeOffcanvas.dismiss();
             location.reload();
           },
@@ -114,14 +114,14 @@ export class MealEditorComponent {
     this.delClicked = true;
   }
   deleteMeal() {
-    if (this.meal) {
-      console.log(this.meal.meals);
-      console.log(this.meal.meals._id);
-    }
+    // if (this.meal) {
+    //   console.log(this.meal.meals);
+    //   console.log(this.meal.meals._id);
+    // }
     if (this.meal?.meals._id) {
       this.engineService.deleteMeal(this.meal?.meals._id).subscribe({
         next: (value: any) => {
-          console.log(value);
+          // console.log(value);
           this.activeOffcanvas.dismiss();
           location.reload();
         },
@@ -161,7 +161,7 @@ export class MealEditorComponent {
     this.formCounter += 1;
   }
   deleteForm(item: any) {
-    console.log(item);
+    // console.log(item);
     this.meal?.meals.ingredients.splice(item, 1);
   }
 }

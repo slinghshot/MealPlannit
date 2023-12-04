@@ -21,16 +21,14 @@ import { InputValidatorService } from 'src/app/services/input-validator.service'
   styleUrls: ['./create-meal.component.css'],
 })
 export class CreateMealComponent implements OnChanges {
-  
   submitted: boolean = false;
   mealName: string = '';
   mealDescription: string = '';
   shared: boolean = false;
   formCounter = 0;
-  inputError: InputError = new InputError;
+  inputError: InputError = new InputError();
   @Input() meals?: Array<SingleMeal>;
   fileIng: any = [];
-  
 
   search: OperatorFunction<string, readonly string[]> = (
     text$: Observable<string>
@@ -62,15 +60,18 @@ export class CreateMealComponent implements OnChanges {
       )
     );
 
-  constructor(private engineService: EngineService, private inputvalidator:InputValidatorService) {}
+  constructor(
+    private engineService: EngineService,
+    private inputvalidator: InputValidatorService
+  ) {}
 
   ngOnChanges(changes: any): void {
     let list: Array<string> = [];
     this.engineService.getIngredients().subscribe({
       next: (value: any) => {
-        console.log(value.length);
+        // console.log(value.length);
         list = value;
-        console.log(changes.meals.currentValue);
+        // console.log(changes.meals.currentValue);
 
         if (this.meals) {
           this.meals.forEach((SingleMeal) => {
@@ -80,7 +81,7 @@ export class CreateMealComponent implements OnChanges {
             });
           });
         }
-        console.log(`length is ${list.length}`);
+        // console.log(`length is ${list.length}`);
         // console.log(list);
         this.engineService.ingredientsList = [...new Set(list)];
         // this.engineService.ingredientsList = this.ingredientsList;
@@ -122,43 +123,47 @@ export class CreateMealComponent implements OnChanges {
     this.formCounter += 1;
   }
   deleteForm(item: any) {
-    console.log(item.count);
+    // console.log(item.count);
     // this.passengerForm.pop();
     this.mealForm = this.mealForm.filter((e) => e.count != item.count);
   }
 
-  checkIfInputError(inputError:InputError):boolean{
-    let error=false;
+  checkIfInputError(inputError: InputError): boolean {
+    let error = false;
     let errorTypes = Object.values(inputError);
     errorTypes.forEach((values) => {
-      if(values===true){
-        error=true;
+      if (values === true) {
+        error = true;
       }
     });
     return error;
   }
 
   logMeal() {
-    this.inputError = new InputError;
+    this.inputError = new InputError();
     this.submitted = true;
-    console.log(this.mealName, this.mealDescription);
-    this.inputError=this.inputvalidator.inputErrorCheck(this.mealName, this.mealDescription, this.mealForm, this.shared);
-    console.log(this.inputError);
-    if(this.checkIfInputError(this.inputError)){
-      console.log('input error!');
-    }
+    // console.log(this.mealName, this.mealDescription);
+    this.inputError = this.inputvalidator.inputErrorCheck(
+      this.mealName,
+      this.mealDescription,
+      this.mealForm,
+      this.shared
+    );
+    // console.log(this.inputError);
+    // if (this.checkIfInputError(this.inputError)) {
+    //   console.log('input error!');
+    //   return;
+    // }
 
-    // error 
-    this.inputError.measurementInputError = true;
-    
-    
+    // error
+    // this.inputError.measurementInputError = true;
 
-    this.mealForm.forEach((item) => {
-      console.log(item.ingredientName);
-      console.log(item.amountType);
-      console.log(item.isOptional);
-      console.log(this.shared);
-    });
+    // this.mealForm.forEach((item) => {
+    //   console.log(item.ingredientName);
+    //   console.log(item.amountType);
+    //   console.log(item.isOptional);
+    //   console.log(this.shared);
+    // });
 
     let postData = {
       mealName: this.mealName,
@@ -166,17 +171,19 @@ export class CreateMealComponent implements OnChanges {
       ingredients: [...this.mealForm],
       shared: this.shared,
     };
-    console.log(postData);
-    if(false){
-    this.engineService.createMeal(postData).subscribe({
-      next: (value: any) => {
-        console.log(value);
-        location.reload();
-      },
-      error: (err) => {
-        console.log(err);
-      },
-    });
-  }
+    // console.log(postData);
+    if (!this.checkIfInputError(this.inputError)) {
+      this.engineService.createMeal(postData).subscribe({
+        next: (value: any) => {
+          // console.log(value);
+          location.reload();
+        },
+        error: (err) => {
+          console.log(err);
+        },
+      });
+    } else {
+      console.log('input error!');
+    }
   }
 }

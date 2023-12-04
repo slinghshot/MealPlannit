@@ -9,8 +9,8 @@ import { InputError } from '../models/input-error';
   providedIn: 'root',
 })
 export class EngineService {
-  // private apiGetALL = 'http://127.0.0.1:3000/api/v1/meals';
-  private apiGetALL = 'https://api.mealplannit.com/api/v1/meals';
+  private apiGetALL = 'http://127.0.0.1:3000/api/v1/meals';
+  // private apiGetALL = 'https://api.mealplannit.com/api/v1/meals';
   ingredientsList: Array<string> = [];
   generatedIngredients: Array<any> = new Array<any>();
   measurements = [

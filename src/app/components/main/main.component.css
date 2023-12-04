@@ -4,7 +4,7 @@
   color: #fff;
   padding-bottom: 25vh;
   padding-top: 15vh;
-  background-image: url(../../assets/registerTable.jpg);
+  background-image: url("../../assets/registerTable.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-blend-mode: overlay;
@@ -59,7 +59,7 @@
   background-color: yellow;
 }
 #bannerSideImg {
-  background-image: url("../../../assets/foodImage2.png");
+  background-image: url("../../assets/foodImage2.png");
   background-size: contain;
   background-repeat: no-repeat;
   background-position: left;

@@ -23,8 +23,8 @@ export class SignUpComponent {
   ) {}
 
   onRegister() {
-    console.log('button clicked');
-    console.log(this.name, this.email, this.password);
+    // console.log('button clicked');
+    // console.log(this.name, this.email, this.password);
     this.authservice.register(this.name, this.email, this.password).subscribe({
       next: (value) => {
         // console.log(`welcome ${value.user.name}`);
@@ -32,8 +32,8 @@ export class SignUpComponent {
         // this.authservice.name = value.user.name;
         // this.authservice.setToken(value.token);
         // this.authservice.userLoggedIn = true;
-        console.log(value);
-        console.log(value.user.name);
+        // console.log(value);
+        // console.log(value.user.name);
         Swal.fire({
           title: 'Email Verification Sent',
           icon: 'success',
@@ -43,7 +43,11 @@ export class SignUpComponent {
       },
       error: (error) => {
         if (error.status === 401) {
-          console.log('unauthorized homie');
+          Swal.fire({
+            title: 'Email Verification Failed',
+            icon: 'error',
+            confirmButtonColor: '#070f0dd3',
+          });
         }
         console.log(error);
       },

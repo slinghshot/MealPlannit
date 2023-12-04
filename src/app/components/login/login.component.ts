@@ -25,12 +25,12 @@ export class LoginComponent {
   }
 
   submit() {
-    console.log('button clicked');
-    console.log(this.email, this.email);
+    // console.log('button clicked');
+    // console.log(this.email, this.email);
     this.authservice.login(this.email, this.password).subscribe({
       next: (value) => {
-        console.log(`welcome ${value.user.name}`);
-        console.log(value.token);
+        // console.log(`welcome ${value.user.name}`);
+        // console.log(value.token);
         this.authservice.name = value.user.name;
         this.authservice.setToken(value.token);
         this.authservice.userLoggedIn = true;
@@ -38,7 +38,7 @@ export class LoginComponent {
       },
       error: (error) => {
         if (error.status === 401) {
-          console.log('unauthorized homie');
+          alert('unauthorized');
         }
         console.log(error);
       },

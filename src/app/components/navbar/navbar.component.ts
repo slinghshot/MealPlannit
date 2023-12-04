@@ -13,7 +13,7 @@ export class NavbarComponent {
 
   userLoggedIn: boolean = false;
   ngOnInit() {
-    console.log(this.userLoggedIn);
+    // console.log(this.userLoggedIn);
     this.authservice.checkIfToken();
     this.userLoggedIn = this.authservice.userLoggedIn;
     if (this.userLoggedIn) {

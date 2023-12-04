@@ -68,7 +68,7 @@ export class GroceryListComponent {
     groceryList.sort((a: any, b: any) =>
       a.ingredient > b.ingredient ? 1 : b.ingredient > a.ingredient ? -1 : 0
     );
-    console.log(groceryList);
+    // console.log(groceryList);
     this.generatedIngredients = groceryList;
     this.engineservice.generatedIngredients = this.generatedIngredients;
   }
@@ -88,7 +88,7 @@ export class GroceryListComponent {
     this.meals = new Array<SingleMeal>();
     this.engineservice.getAllMeals().subscribe({
       next: (value: Meals) => {
-        console.log(value);
+        // console.log(value);
         value.data.map((e) => {
           this.meals?.push(new SingleMeal(e));
         });

@@ -27,7 +27,7 @@ export class MealComponent {
     this.meals = new Array<SingleMeal>();
     this.engineservice.getAllMeals().subscribe({
       next: (value: Meals) => {
-        console.log(value);
+        // console.log(value);
         value.data.map((e) => {
           this.meals?.push(new SingleMeal(e));
         });

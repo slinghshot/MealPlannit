@@ -13,7 +13,7 @@ export class PrintableComponent {
     let storedValues = JSON.parse(
       localStorage.getItem('IngredientList') || '{}'
     );
-    console.log(storedValues);
+    // console.log(storedValues);
     this.generatedIngredients = storedValues;
     setTimeout(() => {
       window.print();
