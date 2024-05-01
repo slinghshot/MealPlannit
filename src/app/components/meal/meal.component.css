@@ -1,0 +1,127 @@
+/* .main {
+  background-color: #070f0df6;
+  color: white;
+  padding-top: 2vh;
+} */
+.coverpic{
+  /* background-color: #132b2600; */
+  height:100%;
+  border-radius: 9px;
+  margin-top:-5px;
+  background: linear-gradient(#132b26c8, #132b26b3);
+}
+.coverpic:hover{
+  box-shadow: 0 10px 20px #ffffff;
+  cursor: pointer;
+  --p: 100%;
+  --t: 0.3s;
+  color: #efefef;
+}
+.cardBG {
+  padding-bottom: 40px;
+  /* background-color: #070f0df6; */
+  background-color: #070f0df6;
+  color: white;
+  padding-top: 2vh;
+}
+
+.container {
+  /* margin-top: 1vh; */
+  /* background-color: #132b26; */
+  padding: 0 50px 0 50px;
+  border-radius: 15px;
+}
+/* .background {
+  border: 1.5px #132b26 solid;
+  height: 340px;
+  width: 260px;
+  color: #f1f9f7;
+  background-color: #132b26;
+  transition: 0.5s;
+  border-radius: 10px;
+  text-align: center;
+  margin-left: -12px;
+  background: linear-gradient(#f1f9f7 0 0) no-repeat var(--p, 200%) 100% / 200%
+    var(--p, 0.08em);
+  transition: 0.3s var(--t, 0s),
+    background-position 0.3s calc(0.3s - var(--t, 0s));
+} */
+.background {
+  border: 1.5px #132b26 solid;
+  height: 340px;
+  width: 260px;
+  color: #f1f9f7;
+  background-color: #132b26;
+  transition: 0.5s;
+  border-radius: 10px;
+  text-align: center;
+  margin-left: -12px;
+  /* background-image: url('your-image-url.jpg'); Replace 'your-image-url.jpg' with the URL of your image */
+  /* background: linear-gradient(#f1f9f7 0 0) no-repeat var(--p, 200%) 100% / 200% */
+    /* var(--p, 0.08em); */
+  transition: 0.3s var(--t, 0s);
+  background-size: cover; /* Adjust as needed */
+  background-position: center; /* Adjust as needed */
+  /* Add any other background properties as needed */
+}
+.background > h2 {
+  text-align: center;
+  margin-top: 50px;
+}
+.background:hover {
+  /* transform: translateY(-20px); */
+  box-shadow: 0 10px 20px #f4f4f4;
+  cursor: pointer;
+  --p: 100%;
+  --t: 0.3s;
+  color: #132b26;
+}
+.background p:first-of-type {
+  font-size: 12pt;
+  padding: 0 5px 0 5px;
+}
+.mealInfo {
+  margin-top: 5px;
+  height: 250px;
+  word-wrap: break-word;
+}
+.info {
+  /* margin-top: 100px; */
+  border-top: 1px solid;
+}
+
+.items:hover {
+  transform: translateY(-20px);
+}
+.items {
+  transition: 0.5s;
+  background-color: #132b26;
+  border-radius: 10px;
+  height: 340px;
+  width: 260px;
+}
+.infoStats {
+  margin-top: -1vh;
+}
+.mealEditor {
+  overflow: scroll;
+}
+.scroller {
+  overflow: scroll;
+}
+.cardFactContainer {
+  /* border: solid; */
+  margin-top: -12px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+.cardFact {
+  /* border: solid; */
+  /* margin-left: -4px; */
+  text-align: center;
+}
+
+.autoAddForm{
+  
+}

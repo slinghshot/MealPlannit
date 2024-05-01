@@ -1,0 +1,47 @@
+.solid{
+    border:solid;
+  }
+
+
+header {
+    /* background-color: #132c26; */
+    /* color: #008170; */
+    border-bottom: solid 4px #8d8d8d6a;
+    border-top:  solid 4px #8d8d8d6a;
+    /* border:solid; */ 
+    /* height:55px; */
+    /* text-align: right; */
+  }
+  .navbar {
+    /* border: solid; */
+    /* padding-left: 20%; */
+    text-align: center;
+
+  }
+.navSection{
+    height:100%;
+    width:45%;
+    text-align: left;
+}
+.navBarText{
+    /* border: solid; */
+    width:100%;
+}
+
+  .name {
+    padding-top: 10px;
+    font-size: 16px;
+    color: #495e57;
+  }
+  
+  .logo {
+    height: 50px;
+  }
+  
+  h3{
+    /* font-weight: bold; */
+    letter-spacing: .2rem;
+  }
+  p{
+    letter-spacing: .1rem;
+  }

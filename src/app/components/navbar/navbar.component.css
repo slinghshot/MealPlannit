@@ -1,0 +1,148 @@
+header {
+  background-color: #f5f7f8;
+  color: #008170;
+  border-bottom: solid 4px #8d8d8d6a;
+  padding-bottom: 5px;
+}
+.navbar {
+  padding-left: 20%;
+}
+.navbar-brand {
+  font-family: "Amatic SC", sans-serif;
+  font-size: 40px;
+}
+
+.butter {
+  margin-right: 120px;
+}
+.nav-item > * {
+  color: #495e57;
+}
+
+.nav-link {
+  letter-spacing: 0.09rem;
+  border-left: 2px solid rgba(128, 128, 128, 0.191);
+  font-size: 12pt;
+}
+
+.nav-link:hover {
+  color: #f4ce14;
+  text-decoration: underline;
+}
+.nav-link:last-child {
+  border-right: 2px solid rgba(128, 128, 128, 0.191);
+}
+
+@media screen and (max-width: 990px) {
+  .nav-link {
+    border-left: none;
+  }
+  .nav-link:last-child {
+    border-right: none;
+  }
+}
+#login {
+  color: #2c4530;
+  background-color: white;
+}
+
+#login:hover {
+  color: white;
+  /* background-color: #2c4530; */
+  background-color: #070f0ded;
+  border-color: var(--bs-btn-hover-border-color);
+}
+
+#signup {
+  color: white;
+  /* background-color: #2c4530e9; */
+  background-color: #070f0dd3;
+}
+#signup:hover {
+  color: white;
+  /* background-color: #2c4530; */
+  background-color: #070f0ded;
+  border-color: var(--bs-btn-hover-border-color);
+}
+.loginSignUp {
+  flex-shrink: 0;
+}
+
+.name {
+  padding-top: 10px;
+  font-size: 16px;
+  color: #495e57;
+}
+
+.logo {
+  height: 50px;
+}
+
+/* ---------------------------------- */
+.signOut {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 45px;
+  height: 45px;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition-duration: 0.3s;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.199);
+  /* background-color: rgb(255, 65, 65); */
+  background-color: #070f0dd1;
+}
+
+/* plus sign */
+.sign {
+  width: 100%;
+  transition-duration: 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sign svg {
+  width: 17px;
+}
+
+.sign svg path {
+  fill: white;
+}
+/* text */
+.textSignOut {
+  position: absolute;
+  right: 0%;
+  width: 0%;
+  opacity: 0;
+  color: white;
+  font-size: 1.2em;
+  font-weight: 600;
+  transition-duration: 0.3s;
+}
+/* hover effect on button width */
+.signOut:hover {
+  width: 125px;
+  border-radius: 40px;
+  transition-duration: 0.3s;
+}
+
+.signOut:hover .sign {
+  width: 30%;
+  transition-duration: 0.3s;
+  padding-left: 20px;
+}
+/* hover effect button's text */
+.signOut:hover .textSignOut {
+  opacity: 1;
+  width: 70%;
+  transition-duration: 0.3s;
+  padding-right: 10px;
+}
+/* button click effect*/
+.signOut:active {
+  transform: translate(2px, 2px);
+}

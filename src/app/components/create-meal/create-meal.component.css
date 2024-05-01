@@ -1,0 +1,71 @@
+.NewMeals {
+  background-color: #f4f4f4;
+  width: 100%;
+  color: #132b26;
+  /* min-height: 10vh; */
+  padding-top: 4vh;
+  padding-bottom: 110px;
+}
+.MealForm {
+  padding-bottom: 10px;
+}
+
+.isOptional {
+  /* border: solid; */
+  padding-top: 20px;
+  margin-left: 10px;
+}
+
+.ingredients {
+  border-top: 1px solid black;
+  /* background-color: grey; */
+  padding: 10px;
+}
+.addButton {
+  margin-left: 10px;
+}
+.delButton {
+  margin-top: 10px;
+}
+
+.shareable {
+  margin-left: 10px;
+  margin-top: 10px;
+}
+.shareLabel {
+  margin-left: 4px;
+}
+.submitbutton {
+  color: #132b26;
+  padding: 0.533em 1.6em;
+  font-size: 15px;
+  border-radius: 0.5em;
+  background: #e8e8e8;
+  border: 1px solid #e8e8e8;
+  transition: all 0.3s;
+  box-shadow: 6px 6px 12px #c5c5c5, -6px -6px 12px #ffffff;
+}
+.submitbutton:active {
+  color: #666;
+  box-shadow: inset 4px 4px 12px #c5c5c5, inset -4px -4px 12px #ffffff;
+}
+
+.a {
+  border: solid;
+}
+
+.ingredients > div {
+  /* border: solid; */
+  padding-top: 12px;
+}
+.ingredients > div > label {
+  padding-left: 5px;
+  padding-bottom: 1px;
+}
+.ingredients > div > label:last-child {
+  padding-left: 0px;
+}
+
+.form-check-input {
+  border: 1px black solid;
+}

@@ -1,0 +1,30 @@
+<main role="main" class="main">
+    <form class="form container-fluid loginForm">
+        <div class="row">
+            <div class="col-lg ">
+                <p class="form-title">Sign in to your account</p>
+                <div class="input-container">
+                    <!-- <input placeholder="Enter email" type="email"> -->
+                    <input type="email" class="form-control" id="email" aria-describedby="emailHelp" name="email"
+                        placeholder="Enter email" [(ngModel)]="email" />
+                </div>
+                <div class="input-container">
+                    <!-- <input placeholder="Enter password" type="password"> -->
+                    <input type="password" class="form-control" id="password" placeholder="Password" name="password"
+                        [(ngModel)]="password" />
+                    <span>
+                    </span>
+                </div>
+                <button type="submit" (click)="submit()" class="submit">Sign in</button>
+                <!-- <button class="submit" type="submit">
+                    Sign in
+                </button> -->
+
+                <p class="signup-link">
+                    No account?
+                    <a routerLink="/register">Sign up</a>
+                </p>
+            </div>
+        </div>
+    </form>
+</main>

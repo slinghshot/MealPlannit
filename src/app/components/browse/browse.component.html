@@ -1,0 +1,71 @@
+<app-navbar></app-navbar>
+<main class="main">
+    <div [ngClass]="meals.length!=0 ? 'cardBG': '' " *ngIf="meals?.length!=0">
+        <div class="container">
+            <div class="row text-center pb-3">
+                <div class="col-sm">
+                    <h1>Shared Meals</h1>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row justify-content-around gy-5 solid" >
+                <div class="arrows" (click)="previousPage()">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path fill="#ffffff" d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l192 192c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256 246.6 86.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-192 192z"/></svg>
+                </div>
+                <div class="col-xs-0 col-md-0 col-lg-6 items" *ngFor="let meal of meals; index as i;">
+                    <div class="background" (click)="open(meal)" style="background-image: url({{meal.meals.mealImageUrl}});">
+                        <div class="coverpic">
+                        <div class="mealInfo">
+                            <h2>{{meal.meals.mealName | titlecase}} </h2>
+                            <p>Meal Description: {{meal.meals.mealDescription}}</p>
+                        </div>
+                        <div class="info">
+                            <h3>Nutrition Stats:</h3>
+                            <div class="cardFactContainer">
+                                <div class="cardFact">Calories: <div>{{meal.totalCalories}}
+                                    </div>
+                                </div>
+    
+                                <div class="cardFact ">Protein: <div>{{meal.totalProtein}}g
+                                    </div>
+                                </div>
+                                <div class="cardFact  ">Ingredients: 
+                                    <div>
+                                        {{meal.totalIngredients}}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="arrows" (click)="nextPage()">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path fill="#ffffff" d="M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z"/></svg>
+                </div>
+            </div>
+            <p class="pageNumbers">{{currentPage}} of {{totalNumberOfPages}}</p>
+        </div>
+    </div>
+    <div class="container autoAddForm">
+        <div class="justify-content-center section2 sideSection" > 
+            <img src="https://images-platform.99static.com//JwLaeNgWNqbJ7DidkoQH_SOw6gk=/97x0:1159x1062/fit-in/500x500/projects-files/80/8044/804437/c10144c4-07b9-4571-8df1-6052f068c7ea.jpg" alt="Girl in a jacket" width="60%"> 
+        </div>
+        
+        <form class="row justify-content-center gy-2 section2">
+            <h2>Auto Generate Meals!</h2>
+            <h3 >Simply paste the recipe link and click Generate Meal!</h3>
+            <input type="text" class="form-control" ngModel required id="mealName" aria-describedby="mealName"
+                            name="mealName" placeholder="Enter URL" [(ngModel)]="urlGrab" />
+            <textarea type="text" class="form-control" id="mealDescription" aria-describedby="mealDescription"
+                            name="mealDescription" placeholder="Enter Meal Description"
+                            [(ngModel)]="mealDescription"></textarea>
+            <button type="submit" class="btn btn-outline-success submitButton" (click)="grabMeal()">Generate Meal!</button>       
+        </form>
+        
+    <!-- <button class="btn btn-outline-danger delButton" (click)="deleteForm(item)">(—)</button> -->
+</div>
+    <!-- <app-create-meal [meals]="meals"></app-create-meal> -->
+</main>
+<app-footer></app-footer>
